@@ -1,0 +1,10 @@
+title: Home Assistant - Новый сервер
+views:
+  - !include includes/lovelace/home.yaml
+  - !include includes/lovelace/system.yaml
+  - !include includes/lovelace/control.yaml
+  - !include includes/lovelace/battaries.yaml
+  - !include includes/lovelace/graphs.yaml
+  - !include includes/lovelace/cameras.yaml
+  - !include includes/lovelace/devices.yaml
+  - !include includes/lovelace/crypto.yaml

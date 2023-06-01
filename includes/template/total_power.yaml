@@ -1,0 +1,5 @@
+  # - sensor: 
+     # - name: current_power
+       # unit_of_measurement: "W"
+       # icon: mdi:home-lightning-bolt
+       # state: "{{ (states('sensor.212a01_5448e67c5bf5_power')|round(1)) + (states('sensor.212a01_5448e6e68e77_power')|round(1)) + (states('sensor.212a01_5448e6d89786_power')|round(1)) + (states('sensor.0xa4c138d7adc79f6a_power')|round(1)) }}"  

@@ -1,0 +1,9 @@
+  - platform: min_max
+    type: sum
+    name: current_power
+    unique_id: current_power
+    entity_ids:
+      - sensor.212a01_5448e6d89786_power
+      - sensor.0xa4c138d7adc79f6a_power
+      - sensor.212a01_5448e6e68e77_power
+      - sensor.212a01_5448e67c5bf5_power

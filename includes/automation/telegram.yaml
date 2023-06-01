@@ -1,0 +1,35 @@
+- id: 'Уведомление в телеграм при старте системы'
+  initial_state: true
+  alias: 'tlg_system_start'
+  trigger:
+  # Старт HA
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  # Отправка сообзения в телегу
+  - service: telegram_bot.send_message
+    data:
+      message: 'Сервер работает!  Информация о системе будет через 30 секунд! Время:
+        {{ states(''sensor.date_time'') }} '
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - service: telegram_bot.send_message
+    data: 
+      message: |-
+        *Хост*
+        Процессор: {{ states('sensor.processor_use') }} %/ {{ states('sensor.processor_temperature') }} °С
+        ОЗУ: {{ states('sensor.memory_use_percent') }} %
+        Диск: {{ states('sensor.disk_use_percent') }} %
+        Swap: {{ states('sensor.swap_use') }} MiB
+        
+        *Home Assistant*
+        Свичей недоступно:
+        Светильников недоступно:
+        Сенсоров недоступно:
+        Бинарных сенсоров недоступно:
+        
+        Состояние за: {{ states('sensor.date_time') }}

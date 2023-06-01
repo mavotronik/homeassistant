@@ -1,0 +1,149 @@
+title: Мобильные устройства
+icon: mdi:devices
+cards:
+
+
+                  
+    - type: vertical-stack
+      cards:
+
+        - type: custom:stack-in-card
+          mode: vertical
+          cards:
+      
+            - type: markdown
+              style: |
+                   ha-card {
+                     color: #00BFFF;
+                     font-weight: bold;
+                     font-size: 26px;
+                   }          
+              content: >
+                 **Телефон Redmi 9C**
+                 
+            - type: entities
+              entities:
+                - entity: sensor.redmi_9c_battery_temperature
+                  type: custom:multiple-entity-row
+                  name: Батарея
+                  state_header: Температура
+                  entities:
+                    - entity: sensor.redmi_9c_battery_level
+                      name: Заряд                     
+                - entity: sensor.redmi_9c_last_notification
+                  name: Последннее уведомление
+                
+
+      
+    - type: vertical-stack
+      cards:
+
+        - type: custom:stack-in-card
+          mode: vertical
+          cards:
+      
+            - type: markdown
+              style: |
+                   ha-card {
+                     color: #00BFFF;
+                     font-weight: bold;
+                     font-size: 26px;
+                   }          
+              content: >
+                 **Ноут**
+                 
+            - type: entities
+              entities:
+                - entity: sensor.laptop_cpu
+                  type: custom:multiple-entity-row
+                  name: Процессор
+                  state_header: Использование
+
+                - entity: sensor.laptop_memory_use_percent
+                  type: custom:multiple-entity-row
+                  name: Оперативка
+                  state_header: Использовано
+                  
+            - type: entities
+              entities:
+                - entity: sensor.laptop_disk_c_used
+                  type: custom:multiple-entity-row
+                  name: Диск C
+                  state_header: Занято
+                  entities:
+                    - entity: binary_sensor.laptop_disk_c_state
+                      name: Состояние
+                    - entity: sensor.laptop_disk_c_free
+                      name: Свободно
+                    
+                      
+            - type: entities
+              entities:
+                - entity: sensor.laptop_disk_d_used
+                  type: custom:multiple-entity-row
+                  name: Диск D
+                  state_header: Занято
+                  entities:
+                    - entity: binary_sensor.laptop_disk_d_state
+                      name: Состояние
+                    - entity: sensor.laptop_disk_d_free
+                      name: Свободно
+                    
+                      
+        - type: custom:stack-in-card
+          mode: vertical
+          cards:
+      
+            - type: markdown
+              style: |
+                   ha-card {
+                     color: #00BFFF;
+                     font-weight: bold;
+                     font-size: 26px;
+                   }          
+              content: >
+                 **ПК**
+                 
+            - type: entities
+              entities:
+
+                - entity: sensor.0xa4c138d7adc79f6a_power
+                  type: custom:multiple-entity-row
+                  name: Энергопотребление
+                  state_header: Из розетки
+                  
+                - entity: sensor.pc_cpu
+                  type: custom:multiple-entity-row
+                  name: Процессор
+                  state_header: Использование
+
+                - entity: sensor.pc_memory_use_percent
+                  type: custom:multiple-entity-row
+                  name: Оперативка
+                  state_header: Использовано
+                  
+            - type: entities
+              entities:
+                - entity: sensor.pc_disk_c_used
+                  type: custom:multiple-entity-row
+                  name: Диск C
+                  state_header: Занято
+                  entities:
+                    - entity: binary_sensor.pc_disk_c_state
+                      name: Состояние
+                    - entity: sensor.pc_disk_c_free
+                      name: Свободно
+                    
+                      
+            - type: entities
+              entities:
+                - entity: sensor.pc_disk_d_used
+                  type: custom:multiple-entity-row
+                  name: Диск D
+                  state_header: Занято
+                  entities:
+                    - entity: binary_sensor.pc_disk_d_state
+                      name: Состояние
+                    - entity: sensor.pc_disk_d_free
+                      name: Свободно
+                    

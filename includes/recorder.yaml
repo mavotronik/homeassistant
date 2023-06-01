@@ -1,0 +1,27 @@
+  db_url: mysql://homeassistant:homeassistant@core-mariadb/homeassistant?charset=utf8mb4
+  purge_keep_days: 31
+  auto_purge: false
+  include:
+    entities:
+      - sensor.processor_temperature
+      - sensor.processor_use
+      - sensor.memory_free
+      - sensor.memory_use
+      - sensor.memory_use_percent
+      - sensor.disk_free_home
+      - sensor.disk_use
+      - sensor.disk_use_percent
+      - sensor.0x00158d0001e09b81_temperature
+      - sensor.0x00158d0001e09b81_humidity
+      - sensor.0xa4c13837819d8bf1_temperature
+      - sensor.0xa4c13837819d8bf1_humidity
+      - sensor.0xa4c138d7adc79f6a_power
+      - sensor.0xa4c138d7adc79f6a_voltage
+      - sensor.0xa4c138d7adc79f6a_energy
+      - sensor.0x00158d0001e09b81_pressure_mmhg
+      - sensor.0xa4c138d7adc79f6a_integration
+      - sensor.212a01_5448e6d89786_integration
+      - sensor.212a01_5448e6e68e77_integration
+      - sensor.current_power_integration
+      
+      

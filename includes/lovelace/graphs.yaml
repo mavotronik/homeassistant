@@ -1,0 +1,199 @@
+##  "#DC143C" - red     "#FFA500" - #orange     "#FFFF00" - #yellow     "#7FFF00" - #green
+ 
+title: Графики
+icon: mdi:chart-line
+cards:
+
+    - type: vertical-stack
+      cards:
+      
+        - type: markdown
+          style: |
+              ha-card {
+                font-size: 26px;
+              }          
+          content: >
+             **Температура**
+             
+        - type: custom:mini-graph-card
+          entities:
+            - entity: sensor.0x00158d0001e09b81_temperature
+              name: Комната
+          color_thresholds:
+            - value: 10
+              color: "#DC143C"
+            - value: 15
+              color: "#98FB98"
+            - value: 20
+              color: "#7FFF00" 
+            - value: 25
+              color: "#98FB98" 
+            - value: 30
+              color: "#DC143C" 
+          animate: true
+          line_width: 1
+          hour24: true
+          points_per_hour: 5
+          group_by: hour
+          hours_to_show: 168
+          
+        - type: custom:mini-graph-card
+          entities:
+            - entity: sensor.0xa4c13837819d8bf1_temperature
+              name: Улица
+          color_thresholds:
+            - value: -5
+              color: "#00FFFF"
+            - value: 0
+              color: "#66CDAA"
+            - value: 5
+              color: "#98FB98"
+            - value: 10
+              color: "#32CD32"
+            - value: 20
+              color: "#7FFF00"
+            - value: 25
+              color: "#98FB98"
+            - value: 30
+              color: "#FFFF00"
+            - value: 40
+              color: "#FF8C00"
+            - value: 50
+              color: "#DC143C"
+          animate: true
+          line_width: 1
+          hour24: true
+          points_per_hour: 5
+          group_by: hour
+          hours_to_show: 168
+          
+        # - type: custom:mini-graph-card
+        #   entities:
+        #     - entity: sensor.florarum_temperature_2
+        #       name: Банка
+        #   color_thresholds:
+        #     - value: 20
+        #       color: "#7FFF00"
+        #     - value: 25
+        #       color: "#98FB98"
+        #     - value: 30
+        #       color: "#DC143C"
+        #   animate: true
+        #   line_width: 1
+        #   hour24: true
+        #   points_per_hour: 5
+        #   group_by: hour
+        #   hours_to_show: 168
+          
+    - type: vertical-stack
+      cards:
+      
+        - type: markdown
+          style: |
+              ha-card {
+                font-size: 26px;
+              }          
+          content: >
+             **Влажность**
+             
+        - type: custom:mini-graph-card
+          entities:
+            - entity: sensor.0x00158d0001e09b81_humidity
+              name: Комната
+          color_thresholds:
+            - value: 25
+              color: "#DC143C"  
+            - value: 35
+              color: "#FFA500"  
+            - value: 40
+              color: "#FFFF00" 
+            - value: 45
+              color: "#7FFF00"
+            - value: 60
+              color: "#DC143C" 
+          animate: true
+          line_width: 1
+          hour24: true
+          points_per_hour: 5
+          group_by: hour
+          hours_to_show: 168
+          
+        - type: custom:mini-graph-card
+          entities:
+            - entity: sensor.0xa4c13837819d8bf1_humidity
+              name: Улица
+          color_thresholds:
+            - value: 25
+              color: "#DC143C" 
+            - value: 35
+              color: "#FFA500"
+            - value: 40
+              color: "#FFFF00"
+            - value: 45
+              color: "#7FFF00"
+            - value: 60
+              color: "#DC143C" 
+          animate: true
+          line_width: 1
+          hour24: true
+          points_per_hour: 5
+          group_by: hour
+          hours_to_show: 168
+          
+        # - type: custom:mini-graph-card
+        #   entities:
+        #     - entity: sensor.florarum_humidity_2
+        #       name: Банка
+        #   color_thresholds:
+           
+        #     - value: 25
+        #       color: "#DC143C"
+        #     - value: 35
+        #       color: "#FFA500"
+        #     - value: 40
+        #       color: "#FFFF00"
+        #     - value: 45
+        #       color: "#7FFF00"
+        #     - value: 60
+        #       color: "#DC143C" 
+        #   animate: true
+        #   line_width: 1
+        #   hour24: true
+        #   points_per_hour: 5
+        #   group_by: hour
+        #   hours_to_show: 168
+
+    - type: vertical-stack
+      cards:
+      
+        - type: markdown
+          style: |
+              ha-card {
+                font-size: 26px;
+              }          
+          content: >
+             **Прочее**
+             
+          
+        - type: custom:mini-graph-card
+          entities:
+            - entity: sensor.0x00158d0001e09b81_pressure_mmhg
+              name: Атм. Давление
+          animate: true
+          line_width: 1
+          hour24: true
+          points_per_hour: 
+          group_by: hour
+          hours_to_show: 168
+          
+        - type: custom:mini-graph-card
+          entities:
+            - entity: sensor.0xa4c138d7adc79f6a_voltage
+              name: Напряжение в сети
+          animate: true
+          line_width: 1
+          hour24: true
+          points_per_hour: 
+          group_by: hour
+          hours_to_show: 168
+          

@@ -1,0 +1,23 @@
+- id: 'Сжатие базы и создание бэкапа'
+  initial_state: true
+  alias: 'purge_base_and_create_backup'
+  trigger:
+  # В 0 часов
+  - platform: time
+    at: "00:00:00"
+  condition: []
+  action:
+   # Сжатие базы
+    - service: recorder.purge
+      data:
+        keep_days: 30
+        repack: true
+    - delay: 00:15:00 
+# Полный бэкап системы
+    - service: hassio.backup_full
+      data:
+        name: Automatic Backup {{ states('sensor.date_time') }}
+    - service: counter.increment
+      data: {}
+      target:
+        entity_id: counter.days_of_memory_life

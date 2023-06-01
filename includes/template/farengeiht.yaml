@@ -1,0 +1,6 @@
+#   - sensor: 
+#      - name: 0xa4c13837819d8bf1_temperature_farengeiht
+#       unit_of_measurement: "°F"
+#       icon: mdi:thermomether
+#       state: "((states('sensor.0xa4c13837819d8bf1_temperature') | round(1)) * 9 / 5 ) + 32"  
+      
