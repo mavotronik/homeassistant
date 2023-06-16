@@ -19,6 +19,7 @@ binary_sensor: !include_dir_merge_list includes/bin_sensor
 recorder: !include includes/recorder.yaml
 counter: !include includes/counter.yaml
 mqtt: !include includes/mqtt.yaml
+input_button: !include includes/input_button.yaml
 
 
 panel_custom:
@@ -46,7 +47,11 @@ telegram_bot:
 python_script:
   requirements:
   - requests
+  
+ssh_command:
 
+homeassistant:
+  customize: !include includes/customize.yaml
 
 lovelace:
   mode: yaml
@@ -65,3 +70,13 @@ lovelace:
       type: module
     - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
       type: module
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+      
+  dashboards:
+    lovelace-lc:
+      mode: yaml
+      filename: ui-lc_hub.yaml
+      title: LC Hub
+      icon: mdi:application-settings-outline
+      show_in_sidebar: true

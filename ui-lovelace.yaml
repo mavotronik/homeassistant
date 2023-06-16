@@ -7,4 +7,5 @@ views:
   - !include includes/lovelace/graphs.yaml
   - !include includes/lovelace/cameras.yaml
   - !include includes/lovelace/devices.yaml
-  - !include includes/lovelace/crypto.yaml
+  - !include includes/lovelace/chia.yaml
+  - !include includes/lovelace/net_devices.yaml
