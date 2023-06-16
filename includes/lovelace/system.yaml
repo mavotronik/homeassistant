@@ -28,13 +28,13 @@ cards:
                   - entity: sensor.online_custom
                     name: Home Assistant
                     
-              # - entity: binary_sensor.rpi_power_status
-                # type: custom:multiple-entity-row
-                # name: Питание
-                # state_header: Статус
+              - entity: sensor.chuangmi_212a01_9786_electric_power
+                type: custom:multiple-entity-row
+                name: Питание
+                state_header: Потр. мощность 
                 # entities:
-                  # - entity: sensor.212a01_5448e6d89786_power
-                    # name: Потр. мощность
+                  # - entity: binary_sensor.rpi_power_status
+                    # name: Статус
                     
               - entity: sensor.processor_use
                 type: custom:multiple-entity-row

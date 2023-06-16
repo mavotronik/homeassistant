@@ -71,9 +71,9 @@ cards:
 
         - type: entities
           entities:
-            - entity: light.light_sofa
+            - entity: light.light_sofa_switch
               name: Свет на диване
-            - entity: light.light_table
+            - entity: light.light_table_switch
               name: Свет на столе
             - entity: light.wled
               name: WLED

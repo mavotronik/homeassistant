@@ -3,7 +3,15 @@
     name: current_power
     unique_id: current_power
     entity_ids:
-      - sensor.212a01_5448e6d89786_power
+      - sensor.chuangmi_212a01_9786_electric_power
       - sensor.0xa4c138d7adc79f6a_power
-      - sensor.212a01_5448e6e68e77_power
-      - sensor.212a01_5448e67c5bf5_power
+      - sensor.chuangmi_212a01_8e77_electric_power
+      - sensor.chuangmi_212a01_5bf5_electric_power
+      
+  - platform: min_max
+    type: sum
+    name: chia_plots_size_all
+    unique_id: chia_plots_size_all
+    entity_ids: 
+      - sensor.chia_hdd_250gb_used
+      - sensor.chia_hdd_1tb_used

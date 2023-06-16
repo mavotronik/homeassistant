@@ -17,14 +17,14 @@ sensor:
     state_topic: "lap/DD/used"
   - name: "laptop disk D free"
     state_topic: "lap/DD/free"
-  - name: "laptop disk E used"
-    state_topic: "lap/DE/used"
-  - name: "laptop disk E free"
-    state_topic: "lap/DE/free"
-  - name: "laptop disk F used"
-    state_topic: "lap/DF/used" 
-  - name: "laptop disk F free"
-    state_topic: "lap/DF/free"
+  # - name: "laptop disk E used"
+    # state_topic: "lap/DE/used"
+  # - name: "laptop disk E free"
+    # state_topic: "lap/DE/free"
+  # - name: "laptop disk F used"
+    # state_topic: "lap/DF/used" 
+  # - name: "laptop disk F free"
+    # state_topic: "lap/DF/free"
 
     ## ПК ##    
   
@@ -47,10 +47,26 @@ sensor:
     state_topic: "router/uptime"    
   - name: "router memory"
     state_topic: "router/memory"    
-  - name: "router disk"
-    state_topic: "router/disk"    
+#  - name: "router disk"
+#    state_topic: "router/disk"    
+
   - name: "tab cpu temp"
     state_topic: "tab/cpu_temp"
+    
+    ## CHIA ##
+    
+  - name: "chia ssd used"
+    state_topic: "chia/ssd/250gb/used"    
+  - name: "chia ssd free"
+    state_topic: "chia/ssd/250gb/free"
+  - name: "chia hdd 250Gb used"
+    state_topic: "chia/hdd/250gb/used"
+  - name: "chia hdd 250Gb free"
+    state_topic: "chia/hdd/250gb/free"
+  - name: "chia hdd 1tb used"
+    state_topic: "chia/hdd/1tb/used"
+  - name: "chia hdd 1tb free"
+    state_topic: "chia/hdd/1tb/free"
 
 binary_sensor:
   - name: pc disk C state
@@ -66,9 +82,19 @@ binary_sensor:
   - name: laptop disk D state
     state_topic: "lap/DD/state"
     device_class: plug
-  - name: laptop disk E state
-    state_topic: "lap/DE/state"
-    device_class: plug
-  - name: laptop disk F state
-    state_topic: "lap/DF/state"
-    device_class: plug
+    
+  - name: "chia ssd state"
+    state_topic: "chia/ssd/250gb/state"
+  - name: "chia hdd 250gb state"
+    state_topic: "chia/hdd/250gb/state"
+  - name: "chia hdd 1tb state"
+    state_topic: "chia/hdd/1tb/state"
+    
+  # - name: laptop disk E state
+    # state_topic: "lap/DE/state"
+    # device_class: plug
+  # - name: laptop disk F state
+    # state_topic: "lap/DF/state"
+    # device_class: plug
+    
+ 

@@ -11,12 +11,8 @@
   - service: light.toggle
     data: {}
     target:
-      entity_id: light.light_sofa
-  - service: mqtt.publish
-    data:
-      topic: lc_hub/light/sofa/state
-      payload: "{{ states('switch.212a01_5448e67c5bf5')}}"
-  mode: single
+      entity_id: light.light_sofa_switch
+
   
 - id: 'Свет на столе' 
   initial_state: true
@@ -31,12 +27,8 @@
   - service: light.toggle
     data: {}
     target:
-      entity_id: light.light_table
-  - service: mqtt.publish
-    data:
-      topic: lc_hub/light/sofa/state
-      payload: "{{ states('switch.212a01_5448e6e68e77')}}"
-  mode: single
+      entity_id: light.light_table_switch
+
   
 - id: 'Выкл весь свет' 
   initial_state: true

@@ -21,15 +21,15 @@
     data: 
       message: |-
         *Хост*
-        Процессор: {{ states('sensor.processor_use') }} %/ {{ states('sensor.processor_temperature') }} °С
+        Процессор: {{ states('sensor.processor_use') }} % / {{ states('sensor.processor_temperature') }} °С
         ОЗУ: {{ states('sensor.memory_use_percent') }} %
         Диск: {{ states('sensor.disk_use_percent') }} %
         Swap: {{ states('sensor.swap_use') }} MiB
         
         *Home Assistant*
-        Свичей недоступно:
-        Светильников недоступно:
-        Сенсоров недоступно:
-        Бинарных сенсоров недоступно:
+        Свичей недоступно: {{ states('sensor.unavailable_now_switch') }} / {{ states('sensor.count_switch') }}
+        Светильников недоступно: {{ states('sensor.unavailable_now_light') }} / {{ states('sensor.count_light') }}
+        Сенсоров недоступно: {{ states('sensor.unavailable_now_sensor') }} / {{ states('sensor.count_sensor') }}
+        Бинарных сенсоров недоступно: {{ states('sensor.unavailable_now_binary_sensor') }} / {{ states('sensor.count_binary_sensor') }}
         
         Состояние за: {{ states('sensor.date_time') }}

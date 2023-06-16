@@ -132,8 +132,7 @@ cards:
                     - entity: binary_sensor.pc_disk_c_state
                       name: Состояние
                     - entity: sensor.pc_disk_c_free
-                      name: Свободно
-                    
+                      name: Свободно                 
                       
             - type: entities
               entities:
@@ -147,3 +146,13 @@ cards:
                     - entity: sensor.pc_disk_d_free
                       name: Свободно
                     
+            - type: 'custom:button-card'
+              name: Кнопка питания
+              icon: 'mdi:power'
+              confirmation:
+                text: '[[[ return `"Нажать" на кнопку питания?` ]]]'
+              tap_action:
+                action: call-service
+                service: esphome.pc_controller_pc_power
+              styles:
+              card:                    

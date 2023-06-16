@@ -4,20 +4,26 @@
   unit_time: h
   name: current_power_integration
 
-- platform: integration
-  source: sensor.0xa4c138d7adc79f6a_power
-  unit_prefix: k
-  unit_time: h
-  name: 0xa4c138d7adc79f6a_integration
+# - platform: integration
+  # source: sensor.0xa4c138d7adc79f6a_power
+  # unit_prefix: k
+  # unit_time: h
+  # name: 0xa4c138d7adc79f6a_integration
     
 - platform: integration
-  source: sensor.212a01_5448e6d89786_power
+  source: sensor.chuangmi_212a01_5bf5_electric_power
   unit_prefix: k
   unit_time: h
-  name: 212a01_5448e6d89786_integration
+  name: chuangmi_212a01_5bf5_integration
     
 - platform: integration
-  source: sensor.212a01_5448e6e68e77_power
+  source: sensor.chuangmi_212a01_9786_electric_power
   unit_prefix: k
   unit_time: h
-  name: 212a01_5448e6e68e77_integration
+  name: chuangmi_212a01_9786_integration
+  
+- platform: integration
+  source: sensor.chuangmi_212a01_8e77_electric_power
+  unit_prefix: k
+  unit_time: h
+  name: chuangmi_212a01_8e77_integration

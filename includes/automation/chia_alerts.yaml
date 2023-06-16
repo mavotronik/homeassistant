@@ -1,0 +1,139 @@
+- id: 'Уведомление в телеграм и приложение при отвале терабайтника'
+  initial_state: true
+  alias: 'chia_1tb_down_alert'
+  trigger:
+  # Бинарный сенсор off
+  - platform: state
+    entity_id:
+      - binary_sensor.chia_hdd_1tb_state
+    from: "on"
+    to: "off"
+  condition: []
+  action:
+  # Отправка сообзения в телегу
+#   - service: telegram_bot.send_message
+#     data:
+#       message: 'Диск на 1 терабайт ушел в оффлайн. Время:
+#         {{ states(''sensor.date_time'') }} '
+  # Пуш на телефон
+  - service: notify.mobile_app_redmi_9c
+    data:
+      message: 'Диск на 1 терабайт ушёл в оффлайн. '
+      title: 'Chia ферма'
+
+- id: 'Уведомление в телеграм и приложение при подключении терабайтника'
+  initial_state: true
+  alias: 'chia_1tb_up_alert'
+  trigger:
+  # Бинарный сенсор on 
+  - platform: state
+    entity_id:
+      - binary_sensor.chia_hdd_1tb_state
+    from: "off"
+    to: "on"
+  condition: []
+  action:
+  # Отправка сообзения в телегу
+#   - service: telegram_bot.send_message
+#     data:
+#       message: 'Диск на 1 терабайт вернулся в онлайн. Время:
+#         {{ states(''sensor.date_time'') }} '
+  # Пуш на телефон
+  - service: notify.mobile_app_redmi_9c
+    data:
+      message: 'Диск на 1 терабайт вернулся в онлайн. '
+      title: 'Chia ферма'
+  
+  
+- id: 'Уведомление в телеграм и приложение при отключении диска 250гб'
+  initial_state: true
+  alias: 'chia_250gb_down_alert'
+  trigger:
+  # Бинарный сенсор on 
+  - platform: state
+    entity_id:
+      - binary_sensor.chia_hdd_250gb_state
+    from: "on"
+    to: "off"
+  condition: []
+  action:
+  # Отправка сообзения в телегу
+#   - service: telegram_bot.send_message
+#     data:
+#       message: 'Диск на 250 гигабайт вернулся в онлайн. Время:
+#         {{ states(''sensor.date_time'') }} '
+  # Пуш на телефон
+  - service: notify.mobile_app_redmi_9c
+    data:
+      message: 'Диск на 250 гигабайт ушел в офлайн. '
+      title: 'Chia ферма'
+
+
+- id: 'Уведомление в телеграм и приложение при подключении диска 250гб'
+  initial_state: true
+  alias: 'chia_250gb_up_alert'
+  trigger:
+  # Бинарный сенсор on 
+  - platform: state
+    entity_id:
+      - binary_sensor.chia_hdd_250gb_state
+    from: "off"
+    to: "on"
+  condition: []
+  action:
+  # Отправка сообзения в телегу
+#   - service: telegram_bot.send_message
+#     data:
+#       message: 'Диск на 250 гигабайт вернулся в онлайн. Время:
+#         {{ states(''sensor.date_time'') }} '
+  # Пуш на телефон
+  - service: notify.mobile_app_redmi_9c
+    data:
+      message: 'Диск на 250 гигабайт вернулся в онлайн. '
+      title: 'Chia ферма'
+      
+- id: 'Уведомление в телеграм и приложение при отключении диска SSD'
+  initial_state: true
+  alias: 'chia_ssd_down_alert'
+  trigger:
+  # Бинарный сенсор on 
+  - platform: state
+    entity_id:
+      - binary_sensor.chia_ssd_250gb_state
+    from: "on"
+    to: "off"
+  condition: []
+  action:
+  # Отправка сообзения в телегу
+#   - service: telegram_bot.send_message
+#     data:
+#       message: 'SSD ушел в офлайн. Время:
+#         {{ states(''sensor.date_time'') }} '
+  # Пуш на телефон
+  - service: notify.mobile_app_redmi_9c
+    data:
+      message: 'SSD ушел в офлайн. '
+      title: 'Chia ферма'
+
+- id: 'Уведомление в телеграм и приложение при подключении диска SSD'
+  initial_state: true
+  alias: 'chia_ssd_up_alert'
+  trigger:
+  # Бинарный сенсор on 
+  - platform: state
+    entity_id:
+      - binary_sensor.chia_ssd_250gb_state
+    from: "off"
+    to: "on"
+  condition: []
+  action:
+  # Отправка сообзения в телегу
+#   - service: telegram_bot.send_message
+#     data:
+#       message: 'SSD вернулся в онлайн. Время:
+#         {{ states(''sensor.date_time'') }} '
+  # Пуш на телефон
+  - service: notify.mobile_app_redmi_9c
+    data:
+      message: 'SSD вернулся в онлайн. '
+      title: 'Chia ферма'

@@ -1,0 +1,43 @@
+title: Обзор
+icon: mdi:home
+
+cards:
+
+    - type: vertical-stack
+      title:
+      cards:
+      
+        - type: markdown
+          style: |
+              ha-card {
+                font-size: 30px;
+              }          
+          content: >
+             **Дата, время.**
+             
+    - type: entities
+      entities:
+        - entity: sensor.time
+          name: Время
+        - entity: sensor.date
+          name: Дата
+          
+    - type: entities
+      entities:
+        - entity: sensor.0xa4c13837819d8bf1_temperature
+          name: Температура
+        - entity: sensor.0xa4c13837819d8bf1_humidity
+          name: Влажность
+      title: Улица
+          
+    - type: entities
+      entities:
+        - entity: light.light_table
+          name: Свет на столе
+        - entity: light.light_sofa
+          name: Свет на диване
+        - entity: light.wled
+          name: WLED  
+      title: Свет
+      
+      
