@@ -1,0 +1,793 @@
+2023-10-02 16:22:37.712 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration cryptoinfo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-10-02 16:22:37.717 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration localtuya which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-10-02 16:22:37.722 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-10-02 16:22:37.728 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration ssh_command which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-10-02 16:22:37.733 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration xiaomi_miot which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-10-02 16:22:37.738 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration python_script which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-10-02 16:22:37.744 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration dataplicity which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-10-02 16:23:01.324 WARNING (MainThread) [homeassistant.setup] Setup of hassio is taking over 10 seconds.
+2023-10-02 16:23:28.815 ERROR (MainThread) [homeassistant.components.serial.sensor] Unable to connect to the serial device /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0: [Errno 2] could not open port /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0'. Will retry
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/serial/serialposix.py", line 322, in open
+    self.fd = os.open(self.portstr, os.O_RDWR | os.O_NOCTTY | os.O_NONBLOCK)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/serial/sensor.py", line 177, in serial_read
+    reader, _ = await serial_asyncio.open_serial_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/serial_asyncio/__init__.py", line 504, in open_serial_connection
+    transport, _ = await create_serial_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/serial_asyncio/__init__.py", line 448, in create_serial_connection
+    serial_instance = serial.serial_for_url(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/serial/__init__.py", line 90, in serial_for_url
+    instance.open()
+  File "/usr/local/lib/python3.11/site-packages/serial/serialposix.py", line 325, in open
+    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
+serial.serialutil.SerialException: [Errno 2] could not open port /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0'
+2023-10-02 16:23:39.378 WARNING (MainThread) [homeassistant.setup] Setup of input_number is taking over 10 seconds.
+2023-10-02 16:23:39.695 WARNING (MainThread) [homeassistant.setup] Setup of input_button is taking over 10 seconds.
+2023-10-02 16:23:39.703 WARNING (MainThread) [homeassistant.setup] Setup of input_text is taking over 10 seconds.
+2023-10-02 16:23:39.713 WARNING (MainThread) [homeassistant.setup] Setup of zone is taking over 10 seconds.
+2023-10-02 16:23:42.933 WARNING (MainThread) [homeassistant.setup] Setup of input_boolean is taking over 10 seconds.
+2023-10-02 16:23:42.943 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform template is taking over 10 seconds.
+2023-10-02 16:23:42.947 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform template is taking over 10 seconds.
+2023-10-02 16:24:01.228 WARNING (SyncWorker_1) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 16:24:01.439 WARNING (SyncWorker_1) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 16:24:03.444 ERROR (MainThread) [homeassistant.helpers.event] Error while processing template: Template<template=({{ (states('sensor.0x00158d0001e09b81_pressure')|float / 1.334)|round(1) }}) renders=2>
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 1927, in forgiving_float_filter
+    return float(value)
+           ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'unavailable'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 568, in async_render
+    render_result = _render_with_context(self.template, compiled, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 2198, in _render_with_context
+    return template.render(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/usr/local/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 1, in top-level template code
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 1930, in forgiving_float_filter
+    raise_no_default("float", value)
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 1628, in raise_no_default
+    raise ValueError(
+ValueError: Template error: float got invalid input 'unavailable' when rendering template '{{ (states('sensor.0x00158d0001e09b81_pressure')|float / 1.334)|round(1) }}' but no default was specified
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 694, in async_render_to_info
+    render_info._result = self.async_render(
+                          ^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 570, in async_render
+    raise TemplateError(err) from err
+homeassistant.exceptions.TemplateError: ValueError: Template error: float got invalid input 'unavailable' when rendering template '{{ (states('sensor.0x00158d0001e09b81_pressure')|float / 1.334)|round(1) }}' but no default was specified
+2023-10-02 16:24:03.485 ERROR (MainThread) [homeassistant.components.template.template_entity] TemplateError('ValueError: Template error: float got invalid input 'unavailable' when rendering template '{{ (states('sensor.0x00158d0001e09b81_pressure')|float / 1.334)|round(1) }}' but no default was specified') while processing template 'Template<template=({{ (states('sensor.0x00158d0001e09b81_pressure')|float / 1.334)|round(1) }}) renders=4>' for attribute '_attr_native_value' in entity 'sensor.0x00158d0001e09b81_pressure_mmhg'
+2023-10-02 16:24:06.409 WARNING (MainThread) [aioesphomeapi.reconnect_logic] Can't connect to ESPHome API for rgb-dog @ 192.168.2.223: Error connecting to ('192.168.2.223', 6053): [Errno 113] Connect call failed ('192.168.2.223', 6053) (SocketAPIError)
+2023-10-02 16:24:30.242 WARNING (MainThread) [custom_components.localtuya.common] [bf4...pqv] Disconnected - waiting for discovery broadcast
+2023-10-02 16:24:31.421 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 16:24:31.463 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 16:35:12.861 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 16:37:12.866 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 17:28:55.283 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:28:55.289 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:28:56.954 WARNING (SyncWorker_4) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:28:56.960 WARNING (SyncWorker_4) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:28:56.979 WARNING (SyncWorker_7) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:28:56.988 WARNING (SyncWorker_2) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:28:57.001 WARNING (SyncWorker_7) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:28:57.007 WARNING (SyncWorker_2) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:02.713 WARNING (SyncWorker_1) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:02.722 WARNING (SyncWorker_4) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:02.724 WARNING (SyncWorker_2) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:02.741 WARNING (SyncWorker_1) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:02.747 WARNING (SyncWorker_4) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:02.753 WARNING (SyncWorker_2) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:04.383 WARNING (SyncWorker_8) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:04.392 WARNING (SyncWorker_5) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:04.400 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:04.406 WARNING (SyncWorker_8) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:04.412 WARNING (SyncWorker_5) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:04.414 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:14.189 WARNING (SyncWorker_2) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:14.199 WARNING (SyncWorker_10) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:14.205 WARNING (SyncWorker_2) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:14.210 WARNING (SyncWorker_3) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:14.215 WARNING (SyncWorker_10) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:14.232 WARNING (SyncWorker_3) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:15.799 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:15.805 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:15.823 WARNING (SyncWorker_4) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:15.829 WARNING (SyncWorker_4) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:42.744 WARNING (SyncWorker_8) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:42.751 WARNING (SyncWorker_8) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:29:42.759 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:29:42.775 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:33:05.636 WARNING (SyncWorker_4) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:33:05.642 WARNING (SyncWorker_4) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:33:09.710 WARNING (SyncWorker_9) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:33:09.719 WARNING (SyncWorker_1) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:33:09.724 WARNING (SyncWorker_9) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:33:09.730 WARNING (SyncWorker_1) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:33:14.034 WARNING (SyncWorker_5) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:33:14.040 WARNING (SyncWorker_5) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:33:17.029 WARNING (SyncWorker_2) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:33:17.038 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:33:17.043 WARNING (SyncWorker_2) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:33:17.048 WARNING (SyncWorker_11) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:33:31.766 WARNING (SyncWorker_9) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:33:31.774 WARNING (SyncWorker_7) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unset index for option fan_speed_dp
+2023-10-02 17:33:31.778 WARNING (SyncWorker_9) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:33:31.785 WARNING (SyncWorker_7) [custom_components.localtuya.vacuum] [bf4...pqv] Entity vacuum.vacuum is requesting unknown DPS index None
+2023-10-02 17:52:43.135 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 18:02:43.160 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 18:24:43.524 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 18:24:44.322 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-02 18:25:03.577 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-02 19:00:43.621 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 19:00:49.735 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-02 19:20:43.698 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 19:38:13.750 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 19:41:43.760 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 19:41:44.133 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-02 19:50:13.778 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 19:50:14.415 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-02 19:53:13.786 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 19:53:13.800 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-02 20:18:13.849 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 20:18:13.863 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-02 20:20:13.854 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 20:24:13.870 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 20:43:43.920 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 20:47:02.323 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:02.345 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:02.501 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:03.030 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:03.634 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:03.861 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:07.948 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:08.184 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:09.222 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:10.353 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:11.128 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:11.297 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:22.253 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:22.482 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:22.868 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:23.825 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:24.396 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:47:24.602 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:39.033 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:39.148 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:40.214 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:40.485 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:40.661 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:41.600 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:42.113 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:42.183 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:42.253 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:42.327 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:43.754 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:43.824 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:44.371 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:45.765 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 20:48:45.840 ERROR (MainThread) [frontend.js.latest.202309110] Uncaught error from Chrome 117.0.0.0 on Windows 10
+TypeError: Cannot assign to read only property 'filter' of object '#<Object>'
+Lt._changeFilter (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:32467)
+Lt.<anonymous> (/hacsfiles/lovelace-auto-entities/auto-entities.js:69:46)
+K.handleEvent (/hacsfiles/lovelace-auto-entities/auto-entities.js:1:14430)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+createRenderRoot (src/components/ha-form/ha-form.ts:180:16)
+dispatchEvent (src/common/dom/fire_event.ts:76:7)
+_handleChange (src/components/ha-selector/ha-selector-text.ts:99:14)
+call (src/lit-html.ts:2018:28)
+2023-10-02 21:12:44.138 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 21:36:44.306 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 21:49:44.390 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 21:50:44.391 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 21:59:44.428 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 22:05:44.476 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 22:16:44.533 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 22:16:45.651 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-02 22:23:44.588 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 22:23:45.402 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-02 22:33:35.131 ERROR (MainThread) [homeassistant.components.websocket_api.http.connection] [281471471801920] Error handling message: Integration '' not found (unknown_error) Matvey from 10.116.22.67 (Mozilla/5.0 (Linux; Android 10; M2006C3MNG Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Mobile Safari/537.36 Home Assistant/2023.9.2-11226 (Android 10; M2006C3MNG))
+2023-10-02 22:55:14.737 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 22:58:14.756 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 23:20:42.979 WARNING (MainThread) [homeassistant.components.websocket_api.http.connection] [281471767988800] from 10.116.10.240 (Home Assistant/2023.9.2-11226 (Android 10; M2006C3MNG)): Disconnected: Did not receive auth message within 10 seconds
+2023-10-02 23:25:14.940 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 23:27:06.030 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-02 23:42:45.028 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 23:47:45.045 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-02 23:56:38.311 WARNING (MainThread) [homeassistant.components.websocket_api.http.connection] [281471761307968] from 10.116.22.67 (Home Assistant/2023.9.2-11226 (Android 10; M2006C3MNG)): Disconnected: Did not receive auth message within 10 seconds
+2023-10-02 23:56:38.457 WARNING (MainThread) [homeassistant.components.websocket_api.http.connection] [281471760536384] from 10.116.10.240 (Home Assistant/2023.9.2-11226 (Android 10; M2006C3MNG)): Disconnected: Did not receive auth message within 10 seconds
+2023-10-03 00:03:45.088 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 00:03:45.577 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 00:15:45.125 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 00:18:45.132 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 00:21:45.139 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 00:21:45.158 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 00:22:15.145 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 00:24:45.148 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 00:24:45.166 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 00:27:15.154 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 01:28:06.630 WARNING (MainThread) [homeassistant.components.minecraft_server] Updating the properties of 'connect.2b2t.org:25565' failed - OSError: 
+2023-10-03 01:43:15.408 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 01:43:15.909 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 02:28:45.517 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 02:28:45.889 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 03:23:45.663 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 03:35:15.715 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 03:49:45.751 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 04:04:45.785 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 04:38:45.869 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 04:50:45.897 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 04:50:46.348 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 05:04:15.936 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 05:30:45.995 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 05:30:46.025 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 05:33:46.004 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 05:33:46.022 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 05:34:46.006 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 05:34:46.285 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 05:43:46.033 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 05:43:46.050 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 06:06:46.103 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 06:08:46.107 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 06:13:46.117 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 06:16:46.122 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 06:34:16.176 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 06:58:46.234 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 07:30:04.753 ERROR (MainThread) [homeassistant.components.speedtestdotnet.coordinator] Error fetching speedtestdotnet data: Unable to connect to servers to test latency.
+2023-10-03 07:36:46.326 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 07:44:16.360 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 07:44:16.378 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 07:50:16.374 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 08:14:46.441 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 08:15:16.442 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 08:17:46.448 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 08:18:16.450 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 08:18:16.464 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 08:59:46.563 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 09:05:46.577 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 09:08:46.582 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 09:08:47.190 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 09:30:16.647 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 09:33:46.657 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 09:34:16.659 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 09:34:16.677 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 09:49:46.701 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 09:51:46.706 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 09:52:46.708 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:01:46.747 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:02:16.748 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:02:17.153 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 10:07:46.757 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:07:46.773 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 10:10:46.766 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:21:46.796 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:24:16.803 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:31:46.824 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:31:47.489 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 10:32:46.826 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:39:38.508 WARNING (MainThread) [homeassistant.components.websocket_api.http.connection] [281471761316416] from 10.116.22.67 (Home Assistant/2023.9.2-11226 (Android 10; M2006C3MNG)): Disconnected: Did not receive auth message within 10 seconds
+2023-10-03 10:43:16.872 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:49:46.888 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:51:46.892 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:51:47.614 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 10:55:16.901 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 10:58:16.909 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 11:01:16.915 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 11:02:46.919 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 11:06:16.931 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 11:17:46.970 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 11:17:52.645 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 11:20:16.977 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 11:23:16.984 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 11:32:47.012 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 11:33:47.013 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 12:08:47.121 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 12:08:47.648 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 12:17:17.150 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 12:22:47.183 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 12:23:47.185 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 12:30:17.203 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 12:40:47.232 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 12:40:47.457 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 12:44:47.263 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 12:51:47.281 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 13:09:47.392 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 13:09:47.669 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 13:12:47.401 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 13:12:47.690 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 13:28:47.441 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 13:28:47.696 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 13:57:17.511 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 13:57:17.529 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 14:10:17.538 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 14:22:17.581 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 14:24:47.587 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 14:45:17.641 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 14:54:36.423 WARNING (MainThread) [homeassistant.components.websocket_api.http.connection] [281472165751872] from 10.116.22.67 (Home Assistant/2023.9.2-11226 (Android 10; M2006C3MNG)): Disconnected: Did not receive auth message within 10 seconds
+2023-10-03 15:10:17.706 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 15:10:18.317 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 15:12:47.713 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 15:12:47.731 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 15:15:47.718 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 15:15:47.751 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 15:27:17.745 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 15:27:29.094 WARNING (MainThread) [homeassistant.components.websocket_api.http.connection] [281471762235200] from 10.116.10.240 (Home Assistant/2023.9.2-11226 (Android 10; M2006C3MNG)): Disconnected: Did not receive auth message within 10 seconds
+2023-10-03 15:27:29.847 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/http/security_filter.py", line 85, in security_filter_middleware
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/http/forwarded.py", line 227, in forwarded_middleware
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/http/request_context.py", line 28, in request_context_middleware
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/http/ban.py", line 80, in ban_middleware
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/http/auth.py", line 236, in auth_middleware
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/http/headers.py", line 31, in headers_middleware
+    response = await handler(request)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/http/view.py", line 148, in handle
+    result = await handler(request, **request.match_info)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/websocket_api/http.py", line 50, in get
+    return await WebSocketHandler(request.app["hass"], request).async_handle()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/websocket_api/http.py", line 276, in async_handle
+    await wsock.prepare(request)
+  File "/usr/local/lib/python3.11/site-packages/aiohttp/web_ws.py", line 138, in prepare
+    payload_writer = await super().prepare(request)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/aiohttp/web_response.py", line 421, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/aiohttp/web_response.py", line 429, in _start
+    await self._write_headers()
+  File "/usr/local/lib/python3.11/site-packages/aiohttp/web_response.py", line 502, in _write_headers
+    await writer.write_headers(status_line, self._headers)
+  File "/usr/local/lib/python3.11/site-packages/aiohttp/http_writer.py", line 130, in write_headers
+    self._write(buf)
+  File "/usr/local/lib/python3.11/site-packages/aiohttp/http_writer.py", line 75, in _write
+    raise ConnectionResetError("Cannot write to closing transport")
+ConnectionResetError: Cannot write to closing transport
+2023-10-03 15:32:14.158 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 15:34:07.601 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 15:37:12.389 WARNING (MainThread) [homeassistant.components.minecraft_server] Updating the properties of 'connect.2b2t.org:25565' failed - OSError: 
+2023-10-03 15:37:17.768 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 15:40:47.777 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 15:40:47.794 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 15:41:07.612 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 15:56:15.614 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 15:57:36.340 WARNING (Bot:1640953600:updater) [telegram.vendor.ptb_urllib3.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None)) after connection broken by 'ConnectTimeoutError(<telegram.vendor.ptb_urllib3.urllib3.connectionpool.HTTPSConnectionPool object at 0xffff58b25d90>, 'Connect timed out. (connect timeout=5.0)')': /bot1640953600:AAFgOJa1NhWiO5NzS7aBJGCcye-CvPBvg9o/getUpdates
+2023-10-03 16:39:07.957 WARNING (MainThread) [homeassistant.components.minecraft_server] Updating the properties of 'connect.2b2t.org:25565' failed - OSError: 
+2023-10-03 16:42:18.782 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 16:42:19.391 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 16:43:07.692 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 16:48:48.825 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 16:48:49.115 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 16:59:08.179 WARNING (MainThread) [homeassistant.components.minecraft_server] Updating the properties of 'connect.2b2t.org:25565' failed - OSError: 
+2023-10-03 17:11:16.786 WARNING (MainThread) [homeassistant.components.minecraft_server] Updating the properties of 'connect.2b2t.org:25565' failed - OSError: 
+2023-10-03 17:18:48.907 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 17:22:48.989 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 17:28:07.797 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 17:39:31.797 WARNING (MainThread) [homeassistant.components.websocket_api.http.connection] [281471476511680] from 10.116.22.67 (Home Assistant/2023.9.2-11226 (Android 10; M2006C3MNG)): Disconnected: Did not receive auth message within 10 seconds
+2023-10-03 17:41:19.012 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 17:41:19.640 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 17:44:19.020 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 17:44:19.659 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 17:57:49.064 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 18:03:19.075 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 18:03:19.551 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 18:15:19.121 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 18:15:19.141 ERROR (MainThread) [custom_components.xiaomi_miot.switch] Server(chuangmi.plug.212a01): Got MiioException while fetching the state: Unable to discover the device 192.168.2.168, mapping: {'switch.on': {'siid': 2, 'piid': 1}, 'switch.temperature': {'siid': 2, 'piid': 6}, 'switch.working_time': {'siid': 2, 'piid': 7}, 'functions_enable.power_enable': {'siid': 7, 'piid': 1}, 'functions_enable.over_power': {'siid': 7, 'piid': 2}, 'imilab_timer.on_duration': {'siid': 4, 'piid': 1}, 'imilab_timer.off_duration': {'siid': 4, 'piid': 2}, 'imilab_timer.countdown': {'siid': 4, 'piid': 3}, 'imilab_timer.task_switch': {'siid': 4, 'piid': 4}, 'imilab_timer.countdown_info': {'siid': 4, 'piid': 5}, 'power_consumption': {'siid': 5, 'piid': 1}, 'electric_current-5-2': {'siid': 5, 'piid': 2}, 'power_consumption.voltage': {'siid': 5, 'piid': 3}, 'electric_power-5-6': {'siid': 5, 'piid': 6}, 'power_consumption.surge_power': {'siid': 5, 'piid': 7}, 'indicator_light.on': {'siid': 3, 'piid': 1}}, max_properties: 7/16
+2023-10-03 18:19:49.132 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 18:22:19.138 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 18:24:08.277 WARNING (MainThread) [homeassistant.components.minecraft_server] Updating the properties of 'connect.2b2t.org:25565' failed - OSError: 
+2023-10-03 18:24:16.601 ERROR (dataplicity) [agent] disk poll failed unable to contact JSONRPC server 'https://api.dataplicity.com' (<urlopen error [Errno -3] Try again>)
+2023-10-03 18:24:43.389 ERROR (MainThread) [homeassistant.components.co2signal] Error requesting co2signal data: HTTPSConnectionPool(host='api.co2signal.com', port=443): Max retries exceeded with url: /v1/latest?lon=30.178973972797397&lat=59.832386900241715 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffff58886110>: Failed to establish a new connection: [Errno -3] Try again'))
+2023-10-03 18:26:07.876 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 18:26:53.149 WARNING (Bot:1640953600:updater) [telegram.vendor.ptb_urllib3.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None)) after connection broken by 'NewConnectionError('<telegram.vendor.ptb_urllib3.urllib3.connection.VerifiedHTTPSConnection object at 0xffff0f3cb650>: Failed to establish a new connection: [Errno -3] Try again')': /bot1640953600:AAFgOJa1NhWiO5NzS7aBJGCcye-CvPBvg9o/getUpdates
+2023-10-03 18:31:19.185 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 18:48:07.906 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 18:51:07.942 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 18:53:49.271 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 18:55:19.282 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 18:59:19.306 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 19:04:19.452 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 19:31:19.519 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 19:54:49.603 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 19:55:08.120 WARNING (MainThread) [homeassistant.components.minecraft_server] Connection to 'connect.2b2t.org:25565' lost
+2023-10-03 19:55:41.966 ERROR (MainThread) [homeassistant.components.template.template_entity] TemplateError('ValueError: Template error: float got invalid input 'unavailable' when rendering template '{{ (states('sensor.0x00158d0001e09b81_pressure')|float / 1.334)|round(1) }}' but no default was specified') while processing template 'Template<template=({{ (states('sensor.0x00158d0001e09b81_pressure')|float / 1.334)|round(1) }}) renders=154>' for attribute '_attr_native_value' in entity 'sensor.0x00158d0001e09b81_pressure_mmhg'
+2023-10-03 20:32:19.778 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 21:05:49.870 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 21:08:49.877 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 21:12:59.048 WARNING (MainThread) [homeassistant.components.websocket_api.http.connection] [281470547403072] from 10.116.10.240 (Home Assistant/2023.9.2-11226 (Android 10; M2006C3MNG)): Disconnected: Did not receive auth message within 10 seconds
+2023-10-03 21:25:49.920 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 21:31:19.935 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds
+2023-10-03 21:35:49.947 WARNING (MainThread) [homeassistant.helpers.entity] Update of switch.chuangmi_212a01_9786_switch is taking over 10 seconds

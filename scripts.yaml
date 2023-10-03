@@ -1,0 +1,269 @@
+sh_mee:
+  alias: sh мне
+  sequence:
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_1
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '1'
+        message: '{{states (''input_text.sh_push_text_1'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_2
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '2'
+        message: '{{states (''input_text.sh_push_text_2'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_3
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '3'
+        message: '{{states (''input_text.sh_push_text_3'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_4
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '4'
+        message: '{{states (''input_text.sh_push_text_4'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_5
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '5'
+        message: '{{states (''input_text.sh_push_text_5'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_6
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '6'
+        message: '{{states (''input_text.sh_push_text_6'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_7
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '7'
+        message: '{{states (''input_text.sh_push_text_7'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_8
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '8'
+        message: '{{states (''input_text.sh_push_text_8'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  mode: single
+sh_dima1:
+  alias: sh диме
+  sequence:
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_1
+      state: 'on'
+    then:
+    - service: notify.tlg_dima
+      data:
+        title: '1'
+        message: '{{states (''input_text.sh_push_text_1'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_2
+      state: 'on'
+    then:
+    - service: notify.tlg_dima
+      data:
+        title: '2'
+        message: '{{states (''input_text.sh_push_text_2'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_3
+      state: 'on'
+    then:
+    - service: notify.tlg_dima
+      data:
+        title: '3'
+        message: '{{states (''input_text.sh_push_text_3'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_4
+      state: 'on'
+    then:
+    - service: notify.tlg_dima
+      data:
+        title: '4'
+        message: '{{states (''input_text.sh_push_text_4'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_5
+      state: 'on'
+    then:
+    - service: notify.tlg_dima
+      data:
+        title: '5'
+        message: '{{states (''input_text.sh_push_text_5'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_6
+      state: 'on'
+    then:
+    - service: notify.tlg_dima
+      data:
+        title: '6'
+        message: '{{states (''input_text.sh_push_text_6'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_7
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '7'
+        message: '{{states (''input_text.sh_push_text_7'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  - if:
+    - condition: state
+      entity_id: input_boolean.sh_send_text_8
+      state: 'on'
+    then:
+    - service: notify.mobile_app_redmi_9c
+      data:
+        title: '8'
+        message: '{{states (''input_text.sh_push_text_8'') }}'
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+  mode: single
+sh_start_2:
+  alias: sh start
+  sequence:
+  - parallel:
+    - service: script.sh_me
+      data: {}
+    - service: script.sh_dima1
+      data: {}
+  mode: single
+'1696351703780':
+  alias: Подтверждаемое уведомление
+  use_blueprint:
+    path: homeassistant/confirmable_notification.yaml
+    input:
+      notify_device: 84bd1cb2ff5d12fff8e0e356d4909088
+      title: Тест
+      message: Тестовое сообщение
+      confirm_action:
+      - service: light.turn_on
+        data:
+          rgb_color:
+          - 0
+          - 255
+          - 0
+          brightness_pct: 70
+        target:
+          entity_id: light.rgb_dog_leds
+      dismiss_action:
+      - service: light.turn_on
+        data:
+          rgb_color:
+          - 255
+          - 0
+          - 0
+          brightness_pct: 70
+        target:
+          entity_id: light.rgb_dog_leds

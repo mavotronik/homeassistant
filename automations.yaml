@@ -1,0 +1,247 @@
+- id: '1696237323263'
+  alias: ' Tlg - Старт системы '
+  description: Отправляет сообщение при старте системы в телеграм
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: telegram_bot.send_message
+    data:
+      message: 'Сервер работает! Информация о системе будет через 30 секунд.  Время:
+        {{states(''sensor.time'')}} '
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - service: telegram_bot.send_message
+    data:
+      message: "*Хост*\nПроцессор: {{ states('sensor.processor_use') }} % / {{ states('sensor.processor_temperature')
+        }} °С\nОЗУ: {{ states('sensor.memory_use_percent') }} %\nДиск: {{ states('sensor.disk_use_percent')
+        }} %\nSwap: {{ states('sensor.swap_use') }} MiB\n    \n*Home Assistant*\nСвичей
+        недоступно: {{ states('sensor.unavailable_now_switch') }} / {{ states('sensor.count_switch')
+        }}\nСветильников недоступно: {{ states('sensor.unavailable_now_light') }}
+        / {{ states('sensor.count_light') }}\nСенсоров недоступно: {{ states('sensor.unavailable_now_sensor')
+        }} / {{ states('sensor.count_sensor') }}\nБинарных сенсоров недоступно: {{
+        states('sensor.unavailable_now_binary_sensor') }} / {{ states('sensor.count_binary_sensor')
+        }}\n    \nСостояние за: {{ states('sensor.date_time') }}"
+  mode: single
+- id: '1696237520740'
+  alias: Свет на столе
+  description: Вкл/выкл свет на столе
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 39453d6b94f65eac2e13db9fac8ca4cb
+    type: action
+    subtype: flip90
+    discovery_id: 0x00158d000707e554 action_flip90
+  condition: []
+  action:
+  - type: toggle
+    device_id: 92dd5b439ae2f61e10f13e0a03238e9d
+    entity_id: 7bc4cfb01e953e5764209d4820faee50
+    domain: light
+  mode: single
+- id: '1696238135533'
+  alias: Сжатие базы и бэкап
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition: []
+  action:
+  - service: recorder.purge
+    data:
+      repack: true
+      keep_days: 31
+  - delay:
+      hours: 0
+      minutes: 15
+      seconds: 0
+      milliseconds: 0
+  - service: hassio.backup_full
+    data:
+      compressed: true
+      name: Automatic Backup {{states('sensor.date_time')}}
+  mode: single
+- id: '1696238328931'
+  alias: Свет на диване
+  description: Вкл/выкл свет диван
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 7cebc473665097c8ed80b4d14492e855
+    type: action
+    subtype: single
+    discovery_id: 0x00158d0005bdd1ef action_single
+  condition: []
+  action:
+  - type: toggle
+    device_id: 41c2f8504979acfa6cf40c3586cc8fd6
+    entity_id: 925038bb0d168d5504a136769f8e19a2
+    domain: light
+  mode: single
+- id: '1696238582253'
+  alias: Выключить весь свет
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 39453d6b94f65eac2e13db9fac8ca4cb
+    type: action
+    subtype: shake
+    discovery_id: 0x00158d000707e554 action_shake
+  - platform: device
+    domain: mqtt
+    device_id: 7cebc473665097c8ed80b4d14492e855
+    type: action
+    subtype: hold
+    discovery_id: 0x00158d0005bdd1ef action_hold
+  condition: []
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: all
+  mode: single
+- id: '1696238644560'
+  alias: Розетка комп
+  description: Вкл/выкл розетку
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 39453d6b94f65eac2e13db9fac8ca4cb
+    type: action
+    subtype: tap
+    discovery_id: 0x00158d000707e554 action_tap
+  condition: []
+  action:
+  - type: toggle
+    device_id: f26a98005e8c9bc666628c2995b7e066
+    entity_id: 1dd6cd53d5fdb5b53a4a68af17ed35e9
+    domain: switch
+  mode: single
+- id: '1696240839656'
+  alias: 2b2t alerts
+  description: ''
+  trigger:
+  - platform: time_pattern
+    seconds: /30
+  condition: []
+  action:
+  - if:
+    - condition: numeric_state
+      entity_id: sensor.2b2t_queue_sensor
+      above: 100
+    then:
+    - service: light.turn_on
+      data:
+        rgb_color:
+        - 0
+        - 255
+        - 0
+        brightness_pct: 100
+      target:
+        entity_id: light.rgb_dog_leds
+  - if:
+    - condition: numeric_state
+      entity_id: sensor.2b2t_queue_sensor
+      above: 20
+      below: 50
+    then:
+    - service: light.turn_on
+      data:
+        rgb_color:
+        - 255
+        - 150
+        - 0
+        brightness_pct: 100
+      target:
+        entity_id: light.rgb_dog_leds
+  - if:
+    - condition: numeric_state
+      entity_id: sensor.2b2t_queue_sensor
+      above: 0
+      below: 15
+    then:
+    - service: light.turn_on
+      data:
+        rgb_color:
+        - 255
+        - 0
+        - 0
+        brightness_pct: 100
+      target:
+        entity_id: light.rgb_dog_leds
+  mode: single
+- id: '1696257113635'
+  alias: Пылесос
+  description: Запустить, если на зарядке Отправить заряжаться, если запущен
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 39453d6b94f65eac2e13db9fac8ca4cb
+    type: action
+    subtype: flip180
+    discovery_id: 0x00158d000707e554 action_flip180
+  condition: []
+  action:
+  - if:
+    - condition: state
+      entity_id: sensor.vacuum_state
+      state: standby
+    then:
+    - device_id: ed26959b9f74bc33fca3633cd8224553
+      domain: vacuum
+      entity_id: fd499a69af521fdc7e04ec37dde1beab
+      type: clean
+  - if:
+    - condition: state
+      entity_id: sensor.vacuum_state
+      state: smart
+    then:
+    - device_id: ed26959b9f74bc33fca3633cd8224553
+      domain: vacuum
+      entity_id: fd499a69af521fdc7e04ec37dde1beab
+      type: dock
+  mode: single
+- id: '1696275395124'
+  alias: Ночной свет
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 7cebc473665097c8ed80b4d14492e855
+    type: action
+    subtype: double
+    discovery_id: 0x00158d0005bdd1ef action_double
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      rgb_color:
+      - 255
+      - 255
+      - 255
+      brightness_pct: 2
+    target:
+      entity_id: light.wled
+  mode: single
+- id: '1696346093014'
+  alias: Перезагрузка розетки сервера
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+  condition:
+  - condition: state
+    entity_id: switch.chuangmi_212a01_9786_switch
+    state: unavailable
+  action:
+  - service: homeassistant.reload_config_entry
+    data: {}
+    target:
+      device_id: bab2f3099752b6104033e5825a6e833f
+  mode: single
