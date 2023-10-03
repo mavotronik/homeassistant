@@ -1,2 +1,0 @@
-binary_sensor.ping_vacuum:
-  name: "Пылесос, пинг"
