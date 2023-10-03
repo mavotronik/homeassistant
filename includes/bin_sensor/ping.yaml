@@ -1,0 +1,66 @@
+  - platform: ping
+    host: 192.168.0.1
+    name: "ping router rtk" 
+    count: 3
+    scan_interval: 600
+    
+  - platform: ping
+    host: 192.168.1.1
+    name: "ping router keenetic" 
+    count: 2
+    scan_interval: 600
+    
+  - platform: ping
+    host: 192.168.2.1
+    name: "ping router owrt" 
+    count: 1
+    scan_interval: 600
+
+  - platform: ping
+    host: 192.168.2.12
+    name: "ping server" 
+    count: 1
+    scan_interval: 300
+
+  - platform: ping
+    host: 192.168.2.220
+    name: "ping pc" 
+    count: 2
+    scan_interval: 60
+  
+  - platform: ping
+    host: 192.168.2.199
+    name: "ping vacuum" 
+    count: 4
+    scan_interval: 60
+
+  - platform: ping
+    host: 192.168.2.129
+    name: "ping plug 1" 
+    count: 2
+    scan_interval: 30
+
+  - platform: ping
+    host: 192.168.2.132
+    name: "ping plug 2" 
+    count: 2
+    scan_interval: 30
+
+  - platform: ping
+    host: 192.168.2.168
+    name: "ping plug 3" 
+    count: 2
+    scan_interval: 30
+
+  - platform: ping
+    host: 192.168.2.4
+    name: "ping wled" 
+    count: 4
+    scan_interval: 60
+    
+  - platform: ping
+    host: 192.168.2.174
+    name: "ping chia server"
+    count: 3
+    scan_interval: 30
+

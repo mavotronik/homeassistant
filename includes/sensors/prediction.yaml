@@ -1,0 +1,10 @@
+
+#   - platform: template
+#     sensors:
+#       predicted_out_temp:
+#         friendly_name: "Predicted out temp"
+#         value_template: >-
+#           {% set previous_readings = states.history.filter(entity_id='sensor.0xa4c13837819d8bf1_temperature', count=10) %}
+#           {% set values = previous_readings | map(attribute='state') | map('float') | list %}
+#           {% set prediction = values | sum / values | count %}
+#           {{ prediction }}

@@ -1,0 +1,32 @@
+  - platform: cryptoinfo
+    id: "Chia price"
+    cryptocurrency_name: "chia"
+    currency_name: "usd"
+    unit_of_measurement: "$"
+    multiplier: 1
+    update_frequency: 30 # time in minutes
+    
+  - platform: cryptoinfo
+    id: ""
+    cryptocurrency_name: "bitcoin"
+    currency_name: "usd"
+    unit_of_measurement: "$"
+    multiplier: 1
+    update_frequency: 15 # time in minutes
+    
+  - platform: cryptoinfo
+    id: ""
+    cryptocurrency_name: "ethereum"
+    currency_name: "usd"
+    unit_of_measurement: "$"
+    multiplier: 1
+    update_frequency: 30 # time in minutes
+    
+  - platform: cryptoinfo
+    id: ""
+    cryptocurrency_name: "monero"
+    currency_name: "usd"
+    unit_of_measurement: "$"
+    multiplier: 1
+    update_frequency: 30 # time in minutes
+    

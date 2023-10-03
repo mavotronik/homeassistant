@@ -1,0 +1,28 @@
+  server_plug_reload:
+    name: Server plug reload
+    icon: mdi:server
+    
+  sofa_plug_reload:
+    name: Sofa plug reload
+    icon: mdi:sofa
+    
+  table_plug_reload:
+    name: Table plug reload
+    icon: mdi:table-furniture
+
+  manual_backup:
+    name: Manual backup
+    icon: mdi:cloud-upload
+    
+  manual_db_purge:
+    name: Manual database purge
+    icon: mdi:database-arrow-down
+    
+  sh_start:
+    name: "Запуск"
+    
+  sh_send_me:
+    name: "Отправить мне"
+    
+  sh_send_dima:
+    name: "Отправить Диме"

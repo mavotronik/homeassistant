@@ -1,0 +1,11 @@
+  sensor:
+    - name: Write number
+      state: "{{ states('sensor.arduino_serial').split(',')[1] | float(default=0) }}"
+    - name: Read number
+      state: "{{ states('sensor.arduino_serial').split(',')[2] | float(default=0) }}"
+    - name: Address
+      state: "{{ states('sensor.arduino_serial').split(',')[3] | float(default=0) }}"
+    - name: Corrupted
+      state: "{{ states('sensor.arduino_serial').split(',')[4] | float(default=0) }}"
+    - name: Counter
+      state: "{{ states('sensor.arduino_serial').split(',')[5] | float(default=0) }}"

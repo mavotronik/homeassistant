@@ -1,0 +1,31 @@
+#   chia_price_alerts:
+#     name: "Оповещения о ценах"
+#     icon: mdi:chart-multiple
+
+  sh_send_text_1:
+    name: "Пуш 1"
+    
+  sh_send_text_2:
+    name: "Пуш 2"
+  
+  sh_send_text_3:
+    name: "Пуш 3"
+  
+  sh_send_text_4:
+    name: "Пуш 4"
+  
+  sh_send_text_5:
+    name: "Пуш 5"
+    
+  sh_send_text_6:
+    name: "Пуш 6"
+
+  sh_send_text_7:
+    name: "Пуш 7"
+
+  sh_send_text_8:
+    name: "Пуш 8"
+    
+  sh_off_sound_toggle:
+    name: "Активация выключением звука"
+    

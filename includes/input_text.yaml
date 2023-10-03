@@ -1,0 +1,39 @@
+  sh_push_text_1:
+    name: "Текст уведомления 1"
+    icon: mdi:text-box-edit
+    max: 91
+    
+  sh_push_text_2:
+    name: "Текст уведомления 2"
+    icon: mdi:text-box-edit
+    max: 91
+    
+  sh_push_text_3:
+    name: "Текст уведомления 3"
+    icon: mdi:text-box-edit
+    max: 91
+
+  sh_push_text_4:
+    name: "Текст уведомления 4"
+    icon: mdi:text-box-edit
+    max: 91
+
+  sh_push_text_5:
+    name: "Текст уведомления 5"
+    icon: mdi:text-box-edit
+    max: 91
+
+  sh_push_text_6:
+    name: "Текст уведомления 6"
+    icon: mdi:text-box-edit
+    max: 91
+
+  sh_push_text_7:
+    name: "Текст уведомления 7"
+    icon: mdi:text-box-edit
+    max: 91
+
+  sh_push_text_8:
+    name: "Текст уведомления 8"
+    icon: mdi:text-box-edit
+    max: 91

@@ -1,0 +1,84 @@
+### ---- Binary sensors ---- ###
+binary_sensor.ping_server:
+  friendly_name: "Сервер, пинг"
+binary_sensor.ping_pc:
+  friendly_name: "Компьютер, пинг"
+binary_sensor.ping_vacuum:
+  friendly_name: "Пылесос, пинг"
+binary_sensor.ping_plug_1:
+  friendly_name: "Розетка 1, пинг"
+binary_sensor.ping_plug_2:
+  friendly_name: "Розетка 2, пинг"
+binary_sensor.ping_plug_3:
+  friendly_name: "Розетка 3, пинг"
+binary_sensor.ping_wled:
+  friendly_name: "Лента WLED, пинг"
+
+### ---- sensors ---- ###
+sensor.0x00158d0001e09b81_linkquality:
+  friendly_name: "Климат комната, LQI"
+sensor.0xa4c138d7adc79f6a_linkquality:
+  friendly_name: "Розетка компьютер, LQI"
+sensor.0x00158d0005bdd1ef_linkquality:
+  friendly_name: "Кнопка кровать, LQI"
+sensor.0xa4c13837819d8bf1_linkquality:
+  friendly_name: "Климат улица, LQI"
+  
+sensor.chia_server_cpu:
+  friendly_name: "Чиа сервер, ЦП"
+  unit_of_measurement: "%"
+sensor.chia_server_memory:
+  friendly_name: "Чиа сервер, ОЗУ"
+  unit_of_measurement: "%"
+sensor.chia_server_disk:
+  friendly_name: "Чиа сервер, диск"
+  unit_of_measurement: "%"
+sensor.chia_server_disk_used:
+  friendly_name: "Чиа сервер, занято на диске"
+  unit_of_measurement: "GiB"
+sensor.chia_server_disk_free:
+  friendly_name: "Чиа сервер, свободно на диске"
+  unit_of_measurement: "GiB"
+  
+sensor.laptop_cpu:
+  friendly_name: "Ноут, ЦП"
+  unit_of_measurement: "%"
+sensor.laptop_memory_use_percent:
+  friendly_name: "Ноут, ОЗУ"
+  unit_of_measurement: "%"
+sensor.laptop_disk_c_free:
+  friendly_name: "Ноут, свободно на диске C"
+  unit_of_measurement: "GiB"
+sensor.laptop_disk_c_used:
+  friendly_name: "Ноут, занято на диске C"
+  unit_of_measurement: "GiB"
+sensor.laptop_disk_d_free:
+  friendly_name: "Ноут, свободно на диске D"
+  unit_of_measurement: "GiB"
+sensor.laptop_disk_d_used:
+  friendly_name: "Ноут, занято на диске D"
+  unit_of_measurement: "GiB"
+
+sensor.pc_cpu:
+  friendly_name: "ПК, ЦП"
+  unit_of_measurement: "%"
+sensor.pc_memory_use_percent:
+  friendly_name: "ПК, ОЗУ"
+  unit_of_measurement: "%"
+sensor.pc_disk_c_free:
+  friendly_name: "ПК, свободно на диске C"
+  unit_of_measurement: "GiB"
+sensor.pc_disk_c_used:
+  friendly_name: "ПК, занято на диске C"
+  unit_of_measurement: "GiB"
+sensor.pc_disk_d_free:
+  friendly_name: "ПК, свободно на диске D"
+  unit_of_measurement: "GiB"
+sensor.pc_disk_d_used:
+  friendly_name: "ПК, занято на диске D"
+  unit_of_measurement: "GiB"
+
+### ---- Input number ---- ###
+input_number.electricity_cost:
+  friendly_name: "Стоимость электроэнергии кВт/Ч"
+  unit_of_measurement: "RUB/kWh"

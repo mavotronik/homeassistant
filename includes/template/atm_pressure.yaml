@@ -1,0 +1,5 @@
+  - sensor:
+      - name: "0x00158d0001e09b81_pressure_mmhg"
+        unit_of_measurement: "мм рт. ст."
+        icon: mdi:gauge
+        state: "{{ (states('sensor.0x00158d0001e09b81_pressure')|float / 1.334)|round(1) }}"

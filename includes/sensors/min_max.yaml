@@ -1,0 +1,33 @@
+  - platform: min_max
+    type: sum
+    name: current_power
+    unique_id: current_power
+    entity_ids:
+      - sensor.chuangmi_212a01_9786_electric_power
+      - sensor.0xa4c138d7adc79f6a_power
+      # - sensor.chuangmi_212a01_8e77_electric_power #table
+      # - sensor.chuangmi_212a01_5bf5_electric_power #sofa
+      - sensor.0xa4c138e36e8bc87e_power
+      - sensor.0xa4c138d8733d4f98_power
+      
+#   - platform: min_max
+#     type: sum
+#     name: chia_plots_size_all
+#     unique_id: chia_plots_size_all
+#     entity_ids: 
+#       - sensor.chia_hdd_250gb_used
+#       - sensor.chia_hdd_1tb_used
+      
+  - platform: min_max
+    type: mean
+    name: lqi_mean
+    unique_id: lqi_mean
+    entity_ids: 
+      - sensor.0x00158d0005bdd1ef_linkquality
+      - sensor.0x00158d0001e09b81_linkquality
+      - sensor.0x00158d000707e554_linkquality
+      - sensor.0xa4c1387ae5e3e71f_linkquality
+      - sensor.0xa4c1389390d077b8_linkquality
+      - sensor.0xa4c138d7adc79f6a_linkquality
+      - sensor.0xa4c138e36e8bc87e_linkquality
+      - sensor.0xa4c138d8733d4f98_linkquality

@@ -1,0 +1,21 @@
+  - sensor:
+  
+      - name: chia_server_power
+        state: >
+          {% if is_state('switch.0xa4c1387ae5e3e71f', 'on') %}
+          2.5
+          {% elif "unavaliable" %}
+          0
+          {% else %}
+          0
+          {% endif %}
+          
+      - name: chia_disks_power
+        state: >
+          {% if is_state('switch.0xa4c1389390d077b8', 'on') %}
+          7.5
+          {% elif "unavaliable" %}
+          0          
+          {% else %}
+          0
+          {% endif %}

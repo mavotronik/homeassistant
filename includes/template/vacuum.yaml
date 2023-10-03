@@ -1,0 +1,5 @@
+  - sensor:
+      - name: Vacuum_state
+        icon: mdi:robot-vacuum
+        state: >
+           {{state_attr("vacuum.vacuum", "cleaning_mode")}}

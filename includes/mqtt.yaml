@@ -1,0 +1,92 @@
+sensor:
+    ## Пылесос ##
+  - name: "vacuum state"
+    state_topic: "vacuum/state"
+    
+    ## Ноут ##    
+
+  - name: "laptop cpu"
+    state_topic: "lap/cpu"    
+  - name: "laptop memory use percent"
+    state_topic: "lap/mem"
+  - name: "laptop disk C used"
+    state_topic: "lap/disk/C:/used"
+  - name: "laptop disk C free"
+    state_topic: "lap/disk/C:/free"
+  - name: "laptop disk D used"
+    state_topic: "lap/disk/D:/used"
+  - name: "laptop disk D free"
+    state_topic: "lap/disk/D:/free"
+
+    ## ПК ##    
+  
+  - name: "pc cpu"
+    state_topic: "pc/cpu"    
+  - name: "pc memory use percent"
+    state_topic: "pc/mem"
+  - name: "pc disk C used"
+    state_topic: "pc/DC/used"
+  - name: "pc disk C free"
+    state_topic: "pc/DC/free"
+  - name: "pc disk D used"
+    state_topic: "pc/DD/used"
+  - name: "pc disk D free"
+    state_topic: "pc/DD/free"
+    
+              
+    ## Роутер ##
+  - name: "router uptime"
+    state_topic: "router/uptime"    
+  - name: "router memory"
+    state_topic: "router/memory"    
+
+    ## Chia ##
+    
+  - name: Chia server cpu
+    state_topic: "chia/system/cpu"
+  - name: Chia server cpu temperature
+    state_topic: "chia/system/cpu/temperature"
+  - name: Chia server memory
+    state_topic: "chia/system/mem"
+  - name: Chia server disk
+    state_topic: "chia/system/sd"
+  - name: Chia server disk used
+    state_topic: "chia/system/sd/used"
+  - name: Chia server disk free
+    state_topic: "chia/system/sd/free"    
+
+  - name: Chia ssd_01 free
+    state_topic: "chia/disk/mnt/ssd_01/free"
+  - name: Chia ssd_01 used
+    state_topic: "chia/disk/mnt/ssd_01/used" 
+
+  - name: 2b2t_queue_sensor
+    state_topic: "2b2t"
+
+binary_sensor:
+  - name: pc disk C state
+    state_topic: "pc/DC/state"
+    device_class: plug
+  - name: pc disk D state
+    state_topic: "pc/DD/state"
+    device_class: plug
+
+  - name: laptop disk C state
+    state_topic: "lap/C:/state"
+    device_class: plug
+  - name: laptop disk D state
+    state_topic: "lap/D:/state"
+    device_class: plug
+
+  - name: Chia ssd_01
+    state_topic: "chia/disk/mnt/ssd_01/state"    
+  - name: Chia hdd_01
+    state_topic: "chia/disk/mnt/hdd_01/state"
+  - name: Chia hdd_02
+    state_topic: "chia/disk/mnt/hdd_02/state"
+  - name: Chia hdd_03
+    state_topic: "chia/disk/mnt/hdd_03/state"  
+    
+
+    
+ 
