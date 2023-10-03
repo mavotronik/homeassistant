@@ -1,4 +1,0 @@
-title: Home Assistant - LC Hub
-views:
-  - !include includes/lovelace/lc_hub/home.yaml
-  - !include includes/lovelace/lc_hub/chia.yaml
